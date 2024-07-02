@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danse Macabre Deck</title>
+    <style>
+        .card {
+            width: 320px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="deck"></div>
+    <button onclick="shuffleDeck()">Shuffle Deck</button>
+
+    <script>
+        const cardPaths = [
+            "deck/00-Creation.jpg",
+            "deck/01-Temptation.jpg",
+            "deck/02-Expulsion.jpg",
+            "deck/03-Consequences_of_Fall.jpg",
+            "deck/04-Cemetery.jpg",
+            "deck/05-Pope.jpg",
+            "deck/06-Emperor.jpg",
+            "deck/07-King.jpg",
+            "deck/08-Cardinal.jpg",
+            "deck/09-Empress.jpg",
+            "deck/10-Queen.jpg",
+            "deck/11-Bishop.jpg",
+            "deck/12-Duke.jpg",
+            "deck/13-Abbot.jpg",
+            "deck/14-Abbess.jpg",
+            "deck/15-Nobleman.jpg",
+            "deck/16-Canon.jpg",
+            "deck/17-Judge.jpg",
+            "deck/18-Advocate.jpg",
+            "deck/19-Counsellor.jpg",
+            "deck/20-Preacher.jpg",
+            "deck/21-Priest.jpg",
+            "deck/22-Mendicant_Friar.jpg",
+            "deck/23-Nun.jpg",
+            "deck/24-Old_Woman.jpg",
+            "deck/25-Physician.jpg",
+            "deck/26-Astrologer.jpg",
+            "deck/27-Rich_Man.jpg",
+            "deck/28-Merchant.jpg",
+            "deck/29-Shipman.jpg",
+            "deck/30-Knight.jpg",
+            "deck/31-Count.jpg",
+            "deck/32-Old_Man.jpg",
+            "deck/33-Countess.jpg",
+            "deck/34-Noble_Lady.jpg",
+            "deck/35-Duchess.jpg",
+            "deck/36-Pedlar.jpg",
+            "deck/37-Ploughman.jpg",
+            "deck/38-Young_Child.jpg",
+            "deck/39-Last_Judgment.jpg",
+            "deck/40-Escutcheon_of_Death.jpg",
+            "deck/41-Soldier.jpg",
+            "deck/42-Gamester.jpg",
+            "deck/43-Drunkard.jpg",
+            "deck/44-Fool.jpg",
+            "deck/45-Robber.jpg",
+            "deck/46-Blind_Man.jpg",
+            "deck/47-Waggoner.jpg",
+            "deck/48-Beggar.jpg"
+        ];
+
+
+        function shuffleDeck() {
+            const deck = document.getElementById('deck');
+            deck.innerHTML = '';
+            const shuffledPaths = cardPaths.sort(() => Math.random() - 0.5);
+
+            for (let i = 0; i < 3; i++) {
+                const path = shuffledPaths[i];
+                const card = document.createElement('div');
+                card.className = 'card';
+                const img = document.createElement('img');
+                img.src = path;
+                img.style.width = '100%';
+                img.style.height = '80%';
+                card.appendChild(img);
+                deck.appendChild(card);
+            }
+        }
+
+        shuffleDeck();
+    </script>
+</body>
+
+</html>
